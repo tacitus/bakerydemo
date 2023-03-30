@@ -39,9 +39,9 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
 
 # AWS creds may be used for S3 and/or Elasticsearch
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID", "")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY", "")
-AWS_REGION = os.getenv("AWS_REGION", "")
+AWS_ACCESS_KEY_ID = os.getenv("BUCKETEER_AWS_ACCESS_KEY_ID", "")
+AWS_SECRET_ACCESS_KEY = os.getenv("BUCKETEER_AWS_SECRET_ACCESS_KEY", "")
+AWS_REGION = os.getenv("BUCKETEER_AWS_REGION", "")
 
 # Server-side cache settings. Do not confuse with front-end cache.
 # https://docs.djangoproject.com/en/stable/topics/cache/
@@ -148,7 +148,7 @@ MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 if "AWS_STORAGE_BUCKET_NAME" in os.environ:
-    AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+    AWS_STORAGE_BUCKET_NAME = os.getenv("BUCKETEER_BUCKET_NAME")
     AWS_QUERYSTRING_AUTH = False
     INSTALLED_APPS.append("storages")
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
@@ -157,7 +157,7 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     if "AWS_S3_CUSTOM_DOMAIN" in os.environ:
         AWS_S3_CUSTOM_DOMAIN = os.environ["AWS_S3_CUSTOM_DOMAIN"]
     if "AWS_S3_REGION_NAME" in os.environ:
-        AWS_S3_REGION_NAME = os.environ["AWS_S3_REGION_NAME"]
+        AWS_S3_REGION_NAME = os.environ["BUCKETEER_AWS_REGION"]
 
 if "GS_BUCKET_NAME" in os.environ:
     GS_BUCKET_NAME = os.getenv("GS_BUCKET_NAME")
