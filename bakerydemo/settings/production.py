@@ -147,7 +147,7 @@ if ELASTICSEARCH_ENDPOINT:
 MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-if "BUCKETEER_BUCKET_NAME__" in os.environ:
+if "BUCKETEER_BUCKET_NAME" in os.environ:
     AWS_STORAGE_BUCKET_NAME = os.getenv("BUCKETEER_BUCKET_NAME")
     AWS_QUERYSTRING_AUTH = False
     INSTALLED_APPS.append("storages")
