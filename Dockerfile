@@ -49,7 +49,7 @@ EXPOSE 8000
 ENV DJANGO_SETTINGS_MODULE=bakerydemo.settings.production DJANGO_DEBUG=off
 
 # Call collectstatic with dummy environment variables:
-RUN DATABASE_URL=postgres://none REDIS_URL=none python manage.py collectstatic --noinput
+# RUN DATABASE_URL=postgres://none REDIS_URL=none python manage.py collectstatic --noinput
 
 # make sure static files are writable by uWSGI process
 RUN mkdir -p /code/bakerydemo/media/images && chown -R 1000:2000 /code/bakerydemo/media
