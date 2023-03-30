@@ -1,10 +1,13 @@
 import os
+import logging
 
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage, default_storage
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from wagtail.models import Page, Site
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -15,6 +18,9 @@ class Command(BaseCommand):
         cloud providers) with the images linked from the initial data (and
         included in MEDIA_ROOT).
         """
+        logger.info("Default storage::")
+        logger.info(default_storage)
+        
         directories, file_names = local_storage.listdir(path)
         for directory in directories:
             self._copy_files(local_storage, path + directory + "/")
