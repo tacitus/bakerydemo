@@ -153,7 +153,7 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     INSTALLED_APPS.append("storages")
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
     AWS_S3_FILE_OVERWRITE = False
-    AWS_DEFAULT_ACL = "private"
+    AWS_DEFAULT_ACL = "public"
 
     """
     if "AWS_S3_CUSTOM_DOMAIN" in os.environ:
