@@ -39,9 +39,9 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
 
 # AWS creds may be used for S3 and/or Elasticsearch
-AWS_ACCESS_KEY_ID = os.getenv("BUCKETEER_AWS_ACCESS_KEY_ID", "")
-AWS_SECRET_ACCESS_KEY = os.getenv("BUCKETEER_AWS_SECRET_ACCESS_KEY", "")
-AWS_REGION = os.getenv("BUCKETEER_AWS_REGION", "")
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID", "")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY", "")
+AWS_REGION = os.getenv("AWS_REGION", "")
 
 # Server-side cache settings. Do not confuse with front-end cache.
 # https://docs.djangoproject.com/en/stable/topics/cache/

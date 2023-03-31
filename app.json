@@ -2,7 +2,10 @@
   "name": "WagtailBakeryDemo",
   "description": "WagtailBakeryDemo",
   "repository": "https://github.com/wagtail/bakerydemo",
-  "keywords": ["wagtail", "django"],
+  "keywords": [
+    "wagtail",
+    "django"
+  ],
   "env": {
     "DJANGO_DEBUG": "off",
     "DJANGO_SETTINGS_MODULE": "bakerydemo.settings.production",
@@ -12,10 +15,5 @@
     "postdeploy": "django-admin migrate && django-admin load_initial_data && echo 'from wagtail.images.models import Rendition; Rendition.objects.all().delete()' | django-admin shell"
   },
   "addons": [
-      "heroku-postgresql:mini", 
-      {
-            "plan": "bucketeer:hobbyist",
-            "as": "BUCKETEER"
-       }]
-          
-}
+    "heroku-postgresql:mini"
+  }
