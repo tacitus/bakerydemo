@@ -163,7 +163,7 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
         AWS_S3_REGION_NAME = os.environ["BUCKETEER_AWS_REGION"]
 
     AWS_S3_CUSTOM_DOMAIN = (
-        f"https://{AWS_STORAGE_BUCKET_NAME}.s3-website-{AWS_REGION}.amazonaws.com"
+        f"{AWS_STORAGE_BUCKET_NAME}.s3-website-{AWS_REGION}.amazonaws.com"
     )
 
 if "GS_BUCKET_NAME" in os.environ:
