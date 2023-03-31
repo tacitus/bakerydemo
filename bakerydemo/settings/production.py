@@ -156,15 +156,13 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     AWS_DEFAULT_ACL = "public-read"
 
     """
-    if "AWS_S3_CUSTOM_DOMAIN" in os.environ:
+    if "AWS_S3_CUSTOM_DOMAIN" in os.environ:https://zappa-wagtail-sqlite-serverless.s3-website-ap-southeast-2.amazonaws.com/
         AWS_S3_CUSTOM_DOMAIN = os.environ["AWS_S3_CUSTOM_DOMAIN"]
     """
     if "BUCKETEER_AWS_REGION" in os.environ:
         AWS_S3_REGION_NAME = os.environ["BUCKETEER_AWS_REGION"]
 
-    AWS_S3_CUSTOM_DOMAIN = (
-        f"{AWS_STORAGE_BUCKET_NAME}.s3-website-{AWS_REGION}.amazonaws.com"
-    )
+    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_REGION}.amazonaws.com"
 
 if "GS_BUCKET_NAME" in os.environ:
     GS_BUCKET_NAME = os.getenv("GS_BUCKET_NAME")
