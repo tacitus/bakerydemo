@@ -191,7 +191,7 @@ LOGGING = {
     },
 }
 
-CACHE_MIDDLEWARE_SECONDS = 5 * 60
+CACHE_MIDDLEWARE_SECONDS = 30
 
 # Front-end cache
 # This configuration is used to allow purging pages from cache when they are
