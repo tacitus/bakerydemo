@@ -26,7 +26,9 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # Accept all hostnames, since we don't know in advance which hostname will be used for any given Heroku instance.
 # IMPORTANT: Set this to a real hostname when using this in production!
 # See https://docs.djangoproject.com/en/3.2/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",")
+ALLOWED_HOSTS = os.getenv(
+    "DJANGO_ALLOWED_HOSTS", "springload-wagtaildemo.herokuapp.com"
+).split(",")
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
@@ -188,6 +190,8 @@ LOGGING = {
         },
     },
 }
+
+CACHE_MIDDLEWARE_SECONDS = 5 * 60
 
 # Front-end cache
 # This configuration is used to allow purging pages from cache when they are
