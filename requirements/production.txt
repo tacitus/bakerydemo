@@ -9,7 +9,7 @@ boto3>=1.26,<1.27
 google-cloud-storage==1.20.0
 django-storages==1.13.2
 # For retrieving credentials and signing requests to Elasticsearch
-botocore
+botocore>=1.29,<1.30
 # aws-requests-auth==0.4.0
 django-redis==5.2.0
 django-basic-auth-ip-whitelist==0.5
